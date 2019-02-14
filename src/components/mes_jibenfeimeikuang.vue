@@ -1,0 +1,155 @@
+<template>
+  <div class="container">
+    <span>山西金地煤焦有限公司赤峪煤矿基本信息</span>
+    <table class="table table-striped table-hover">
+      <tbody>
+
+      <tr>
+        <td>{{this.tableMes.data.data.location}}</td>
+        <td>{{this.tableMes.data.list[0].location}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.legalPerson}}</td>
+        <td>{{this.tableMes.data.list[0].legalPerson}}</td>
+      </tr><tr>
+        <td>{{this.tableMes.data.data.mineLicense}}</td>
+        <td>{{this.tableMes.data.list[0].mineLicense}}</td>
+      </tr><tr>
+        <td>{{this.tableMes.data.data.linkMan}}</td>
+        <td>{{this.tableMes.data.list[0].linkMan}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.linkManPhone}}</td>
+        <td>{{this.tableMes.data.list[0].linkManPhone}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.shaftArea}}</td>
+        <td>{{this.tableMes.data.list[0].shaftArea}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.physiognomyType}}</td>
+        <td>{{this.tableMes.data.list[0].physiognomyType}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.riverType}}</td>
+        <td>{{this.tableMes.data.list[0].riverType}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.designServerYear}}</td>
+        <td>{{this.tableMes.data.list[0].designServerYear}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.alreadyServerYear}}</td>
+        <td>{{this.tableMes.data.list[0].alreadyServerYear}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.designProducePower}}</td>
+        <td>{{this.tableMes.data.list[0].designProducePower}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.realProducePower}}</td>
+        <td>{{this.tableMes.data.list[0].realProducePower}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.mineKind}}</td>
+        <td>{{this.tableMes.data.list[0].mineKind}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.designCoalSeam}}</td>
+        <td>{{this.tableMes.data.list[0].coalType}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.exploitMethod}}</td>
+        <td>{{this.tableMes.data.list[0].exploitMethod}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.exploitTechnology}}</td>
+        <td>{{this.tableMes.data.list[0].exploitTechnology}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.buildMineTime}}</td>
+        <td>{{this.tableMes.data.list[0].buildMineTime}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.buildRate}}</td>
+        <td>{{this.tableMes.data.list[0].buildRate * 100}}%</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.produceState}}</td>
+        <td>{{this.tableMes.data.list[0].produceState}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.reserves}}</td>
+        <td>{{this.tableMes.data.list[0].reserves}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.developmentLevel}}</td>
+        <td>{{this.tableMes.data.list[0].developmentLevel}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.depth}}</td>
+        <td>{{this.tableMes.data.list[0].depth}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.depth}}</td>
+        <td>{{this.tableMes.data.list[0].depth}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.oreBodyState}}</td>
+        <td>{{this.tableMes.data.list[0].oreBodyState}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.miningEmptyArea}}</td>
+        <td>{{this.tableMes.data.list[0].miningEmptyArea}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.alreadyCoalSeam}}</td>
+        <td>{{this.tableMes.data.list[0].designCoalSeam}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.emptyCoalMine}}</td>
+        <td>{{this.tableMes.data.list[0].emptyCoalMine}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.autoignition}}</td>
+        <td>{{this.tableMes.data.list[0].autoignitionFirst}}{{this.tableMes.data.list[0].autoignitionSecond}}</td>
+      </tr>
+      <tr>
+        <td>{{this.tableMes.data.data.mineClass}}</td>
+        <td>{{this.tableMes.data.list[0].mineClass}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+<script>
+  export default{
+    data:function(){
+      return {
+        tableMes:null,
+        server:this.GLOBAL.serverSrc
+      }
+    },
+    mounted:function(){
+      this.$ajax.post('http://'+this.server +':8084/file/selectExcel ',{
+        county:'吕梁市文水县',
+        region:'非煤矿山',
+        mineType:'砂岩矿',
+        company:'山西金地煤焦有限公司文水砂岩料场',
+        content:'矿山基本信息调查表格'
+      }).then(res =>{
+        console.log(res)
+        this.tableMes = res;
+
+        this.tableInfo = res.data.list;
+      }).catch(error => {
+        console.log(error)
+      })
+    },
+    methods:{
+    }
+  }
+</script>
+<style scoped>
+
+</style>
